@@ -1,0 +1,29 @@
+---
+title: KrepšelisAI – išdėstymo (deployment) diagrama
+---
+flowchart LR
+    subgraph DEV["Vartotojo įrenginys"]
+        subgraph BR["Naršyklė"]
+            spa[React SPA]
+        end
+    end
+
+    subgraph SRV["Debesų serveris (Docker)"]
+        nginx[Nginx]
+        subgraph NODE["Node.js konteineris"]
+            api[REST API + servisai]
+            scr[Scraperiai + node-cron]
+        end
+        db[("PostgreSQL konteineris")]
+    end
+
+    llm{{LLM API}}
+    shops{{"rimi.lt / iki.lt / norfa.lt"}}
+
+    spa -->|HTTPS| nginx
+    nginx -->|HTTP| api
+    api -->|TCP 5432| db
+    scr -->|TCP 5432| db
+    api -->|HTTPS REST| llm
+    scr -->|HTTPS REST| llm
+    scr -->|HTTPS| shops

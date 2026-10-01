@@ -1,0 +1,46 @@
+@startuml 04_seku_pokalbis
+title KrepšelisAI – sekų diagrama: pirkinių sąrašo palyginimas
+skinparam shadowing false
+autonumber
+
+actor Vartotojas as V
+participant "Pokalbių langas" as UI
+participant "REST API" as API
+participant "Pokalbių servisas" as Chat
+participant "Užklausos\nanalizatorius" as Parser
+participant "LLM API" as LLM
+participant "Krepšelio\nskaičiuoklė" as Calc
+database "PostgreSQL" as DB
+participant "Atsakymo\ngeneratorius" as Resp
+
+V -> UI : „pienas, duona, 10 kiaušinių, vištiena“
+UI -> API : POST /chat/messages
+API -> Chat : apdorotiZinute(tekstas)
+Chat -> Parser : isanalizuoti(tekstas)
+Parser -> LLM : promptas + JSON schema
+LLM --> Parser : [{preke, kiekis, vienetas}]
+Parser --> Chat : struktūruotas sąrašas
+
+Chat -> Calc : apskaiciuoti(sarasas)
+loop kiekvienai sąrašo eilutei
+  Calc -> DB : rasti kanoninę prekę ir kainas tinkluose
+  DB --> Calc : kainos (Rimi, IKI, Norfa)
+end
+Calc -> Calc : perskaičiuoti į €/kg, €/l
+Calc -> Calc : sumos tinkluose + geriausias 2 parduotuvių derinys
+
+alt prekė nerasta
+  Calc --> Chat : rezultatas + nerastų prekių sąrašas
+else visos prekės rastos
+  Calc --> Chat : PalyginimoRezultatas
+end
+
+Chat -> Resp : suformuluoti(rezultatas)
+Resp -> LLM : promptas su skaičiais
+LLM --> Resp : atsakymas žmogiška kalba
+Resp --> Chat : tekstas
+Chat -> DB : išsaugoti žinutes
+Chat --> API : atsakymas + lentelės duomenys
+API --> UI : 200 OK (JSON)
+UI --> V : „Pigiausia Norfoje: 12,40 €.\nRimi brangiau 1,80 €.“
+@enduml

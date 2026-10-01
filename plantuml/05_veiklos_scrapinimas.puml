@@ -1,0 +1,41 @@
+@startuml 05_veiklos_scrapinimas
+title KrepšelisAI – veiklos diagrama: kasdienis kainų surinkimas
+skinparam shadowing false
+
+|Planuoklis|
+start
+:Paleidžiama kasdien 06:00;
+|Scraperis|
+repeat :Imti kitą tinklą (Rimi, IKI, Norfa);
+  :Užkrauti kategorijų ir akcijų puslapius;
+  if (Puslapis pasiekiamas?) then (taip)
+    :Ištraukti prekes (pavadinimas, kaina,\nkaina su kortele, kiekis);
+  else (ne)
+    :Užregistruoti klaidą;
+  endif
+repeat while (Liko tinklų?) is (taip) not (ne)
+|Normalizatorius|
+:Suvienodinti vienetus (500 ml → 0,5 l);
+:Apskaičiuoti vieneto kainą (€/kg, €/l);
+|Prekių suderintojas|
+repeat :Imti kitą tinklo prekę;
+  if (Jau susieta su kanonine preke?) then (taip)
+    :Atnaujinti kainą;
+  else (ne)
+    :LLM įvertina panašumą\nsu kandidatais;
+    if (Pasitikėjimas ≥ 0,85?) then (taip)
+      :Susieti automatiškai;
+    elseif (Pasitikėjimas ≥ 0,5?) then (taip)
+      :Įrašyti į patvirtinimo eilę;
+    else (ne)
+      :Sukurti naują kanoninę prekę;
+    endif
+  endif
+repeat while (Liko prekių?) is (taip) not (ne)
+|Planuoklis|
+if (Rasta prekių daug mažiau nei praeitą kartą?) then (taip)
+  :Pranešti administratoriui;
+endif
+:Įrašyti paleidimo ataskaitą;
+stop
+@enduml

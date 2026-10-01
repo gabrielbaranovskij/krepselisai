@@ -1,0 +1,61 @@
+@startuml 03_komponentu_diagrama
+title KrepšelisAI – komponentų diagrama
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+package "Frontend (React)" {
+  [Pokalbių langas] as ChatUI
+  [Palyginimo lentelė] as TableUI
+  [Administratoriaus panelė] as AdminUI
+}
+
+package "Backend (Node.js + Express)" {
+  [REST API] as API
+  [Autentifikacija (JWT)] as Auth
+  [Pokalbių servisas] as ChatSvc
+  [Užklausos analizatorius] as Parser
+  [Prekių suderintojas] as Matcher
+  [Krepšelio skaičiuoklė] as Calc
+  [Atsakymo generatorius] as Responder
+  [Administravimo servisas] as AdminSvc
+}
+
+package "Duomenų rinkimas" {
+  [Planuoklis (node-cron)] as Cron
+  [Rimi scraperis] as SRimi
+  [IKI scraperis] as SIki
+  [Norfa scraperis] as SNorfa
+  [Normalizatorius] as Norm
+}
+
+database "PostgreSQL" as DB
+cloud "LLM API\n(OpenAI / Claude)" as LLM
+cloud "Tinklų svetainės" as Shops
+
+ChatUI --> API : HTTPS / JSON
+TableUI --> API
+AdminUI --> API
+API --> Auth
+API --> ChatSvc
+API --> AdminSvc
+ChatSvc --> Parser
+ChatSvc --> Calc
+ChatSvc --> Responder
+Parser --> LLM
+Responder --> LLM
+Matcher --> LLM
+Calc --> DB
+ChatSvc --> DB
+AdminSvc --> DB
+Cron --> SRimi
+Cron --> SIki
+Cron --> SNorfa
+SRimi --> Shops
+SIki --> Shops
+SNorfa --> Shops
+SRimi --> Norm
+SIki --> Norm
+SNorfa --> Norm
+Norm --> Matcher
+Matcher --> DB
+@enduml

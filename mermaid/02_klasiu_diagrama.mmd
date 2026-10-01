@@ -1,0 +1,110 @@
+---
+title: KrepšelisAI – klasių diagrama (domeno modelis)
+---
+classDiagram
+    class Role {
+        <<enumeration>>
+        VARTOTOJAS
+        ADMINISTRATORIUS
+    }
+    class Vienetas {
+        <<enumeration>>
+        VNT
+        KG
+        L
+    }
+    class SuderinimoBusena {
+        <<enumeration>>
+        AUTOMATINIS
+        LAUKIA_PATVIRTINIMO
+        PATVIRTINTAS
+        ATMESTAS
+    }
+    class Vartotojas {
+        -UUID id
+        -string el_pastas
+        -string slaptazodzio_hash
+        -Role role
+        -DateTime sukurta
+        +prisijungti() Sesija
+    }
+    class Pokalbis {
+        -UUID id
+        -DateTime pradzia
+        +siustiZinute(tekstas) Zinute
+    }
+    class Zinute {
+        -UUID id
+        -string autorius
+        -string tekstas
+        -DateTime laikas
+    }
+    class PirkiniuSarasas {
+        -UUID id
+        -string pavadinimas
+        -DateTime sukurta
+        +apskaiciuotiKrepseli() PalyginimoRezultatas
+    }
+    class SarasoEilute {
+        -string uzklausosTekstas
+        -decimal kiekis
+        -Vienetas vienetas
+    }
+    class KanoninePreke {
+        -UUID id
+        -string pavadinimas
+        -string kategorija
+        -decimal kiekis
+        -Vienetas vienetas
+    }
+    class PrekybosTinklas {
+        -int id
+        -string pavadinimas
+        -string svetaine
+    }
+    class TinkloPreke {
+        -UUID id
+        -string pavadinimas
+        -decimal kiekis
+        -Vienetas vienetas
+        -string url
+    }
+    class Kaina {
+        -decimal kaina
+        -decimal kaina_su_kortele
+        -decimal vieneto_kaina
+        -Date galioja_nuo
+        -Date galioja_iki
+        -DateTime surinkta
+    }
+    class PrekiuSuderinimas {
+        -float pasitikejimas
+        -SuderinimoBusena busena
+        +patvirtinti(admin)
+        +atmesti(admin)
+    }
+    class PalyginimoRezultatas {
+        -Map sumos
+        -PrekybosTinklas pigiausias
+        -List geriausiasDerinys
+        -decimal sutaupyta
+        -string ai_paaiskinimas
+    }
+    class ScraperioPaleidimas {
+        -DateTime pradzia
+        -DateTime pabaiga
+        -int rasta_prekiu
+        -string klaida
+    }
+
+    Vartotojas "1" -- "0..*" Pokalbis
+    Pokalbis "1" *-- "1..*" Zinute
+    Vartotojas "1" -- "0..*" PirkiniuSarasas
+    PirkiniuSarasas "1" *-- "1..*" SarasoEilute
+    SarasoEilute "0..*" --> "0..1" KanoninePreke
+    PrekybosTinklas "1" -- "0..*" TinkloPreke
+    TinkloPreke "1" *-- "1..*" Kaina
+    PrekiuSuderinimas "0..*" --> "1" TinkloPreke
+    PrekiuSuderinimas "0..*" --> "1" KanoninePreke
+    PirkiniuSarasas ..> PalyginimoRezultatas : sukuria
+    PrekybosTinklas "1" -- "0..*" ScraperioPaleidimas

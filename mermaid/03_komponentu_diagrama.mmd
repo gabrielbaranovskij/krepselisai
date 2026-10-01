@@ -1,0 +1,53 @@
+---
+title: KrepšelisAI – komponentų diagrama
+---
+flowchart TB
+    subgraph FE["Frontend (React)"]
+        ChatUI[Pokalbių langas]
+        TableUI[Palyginimo lentelė]
+        AdminUI[Administratoriaus panelė]
+    end
+
+    subgraph BE["Backend (Node.js + Express)"]
+        API[REST API]
+        Auth["Autentifikacija (JWT)"]
+        ChatSvc[Pokalbių servisas]
+        Parser[Užklausos analizatorius]
+        Matcher[Prekių suderintojas]
+        Calc[Krepšelio skaičiuoklė]
+        Responder[Atsakymo generatorius]
+        AdminSvc[Administravimo servisas]
+    end
+
+    subgraph SC["Duomenų rinkimas"]
+        Cron["Planuoklis (node-cron)"]
+        SRimi[Rimi scraperis]
+        SIki[IKI scraperis]
+        SNorfa[Norfa scraperis]
+        Norm[Normalizatorius]
+    end
+
+    DB[(PostgreSQL)]
+    LLM{{"LLM API (OpenAI / Claude)"}}
+    Shops{{Tinklų svetainės}}
+
+    ChatUI -->|HTTPS / JSON| API
+    TableUI --> API
+    AdminUI --> API
+    API --> Auth
+    API --> ChatSvc
+    API --> AdminSvc
+    ChatSvc --> Parser
+    ChatSvc --> Calc
+    ChatSvc --> Responder
+    Parser --> LLM
+    Responder --> LLM
+    Matcher --> LLM
+    Calc --> DB
+    ChatSvc --> DB
+    AdminSvc --> DB
+    Cron --> SRimi & SIki & SNorfa
+    SRimi & SIki & SNorfa --> Shops
+    SRimi & SIki & SNorfa --> Norm
+    Norm --> Matcher
+    Matcher --> DB

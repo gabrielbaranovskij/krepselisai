@@ -1,0 +1,50 @@
+@startuml 01_panaudos_atvejai
+title KrepšelisAI – panaudos atvejų diagrama
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+actor "Vartotojas" as V
+actor "Administratorius" as A
+actor "Planuoklis (cron)" as C
+actor "LLM servisas" as LLM <<sistema>>
+actor "Prekybos tinklų\nsvetainės" as T <<sistema>>
+
+rectangle "KrepšelisAI" {
+  usecase "Registruotis / prisijungti" as UC1
+  usecase "Rašyti pirkinių sąrašą\nlaisvu tekstu" as UC2
+  usecase "Atpažinti prekes ir kiekius" as UC3
+  usecase "Palyginti krepšelio kainą\ntinkluose" as UC4
+  usecase "Rasti geriausią\n2 parduotuvių derinį" as UC5
+  usecase "Pasiūlyti pigesnę\nalternatyvą" as UC6
+  usecase "Išsaugoti sąrašą" as UC7
+  usecase "Peržiūrėti istoriją" as UC8
+  usecase "Rinkti kainas ir akcijas" as UC9
+  usecase "Suderinti prekes tarp tinklų" as UC10
+  usecase "Patvirtinti abejotinus\nsuderinimus" as UC11
+  usecase "Stebėti scraperių būseną" as UC12
+}
+
+V --> UC1
+V --> UC2
+V --> UC7
+V --> UC8
+UC2 ..> UC3 : <<include>>
+UC2 ..> UC4 : <<include>>
+UC5 .> UC4 : <<extend>>
+UC6 .> UC4 : <<extend>>
+UC7 ..> UC1 : <<include>>
+UC8 ..> UC1 : <<include>>
+
+C --> UC9
+UC9 ..> UC10 : <<include>>
+UC9 --> T
+
+UC3 --> LLM
+UC10 --> LLM
+UC6 --> LLM
+
+A --> UC11
+A --> UC12
+UC11 ..> UC1 : <<include>>
+@enduml

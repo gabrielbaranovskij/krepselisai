@@ -1,0 +1,124 @@
+@startuml 02_klasiu_diagrama
+title KrepšelisAI – klasių diagrama (domeno modelis)
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty methods
+
+enum Role {
+  VARTOTOJAS
+  ADMINISTRATORIUS
+}
+
+enum Vienetas {
+  VNT
+  KG
+  L
+}
+
+enum SuderinimoBusena {
+  AUTOMATINIS
+  LAUKIA_PATVIRTINIMO
+  PATVIRTINTAS
+  ATMESTAS
+}
+
+class Vartotojas {
+  - id: UUID
+  - el_pastas: string
+  - slaptazodzio_hash: string
+  - role: Role
+  - sukurta: DateTime
+  + prisijungti(): Sesija
+}
+
+class Pokalbis {
+  - id: UUID
+  - pradzia: DateTime
+  + siustiZinute(tekstas: string): Zinute
+}
+
+class Zinute {
+  - id: UUID
+  - autorius: string
+  - tekstas: string
+  - laikas: DateTime
+}
+
+class PirkiniuSarasas {
+  - id: UUID
+  - pavadinimas: string
+  - sukurta: DateTime
+  + apskaiciuotiKrepseli(): PalyginimoRezultatas
+}
+
+class SarasoEilute {
+  - uzklausosTekstas: string
+  - kiekis: decimal
+  - vienetas: Vienetas
+}
+
+class KanoninePreke {
+  - id: UUID
+  - pavadinimas: string
+  - kategorija: string
+  - kiekis: decimal
+  - vienetas: Vienetas
+}
+
+class PrekybosTinklas {
+  - id: int
+  - pavadinimas: string
+  - svetaine: string
+}
+
+class TinkloPreke {
+  - id: UUID
+  - pavadinimas: string
+  - kiekis: decimal
+  - vienetas: Vienetas
+  - url: string
+}
+
+class Kaina {
+  - kaina: decimal
+  - kaina_su_kortele: decimal
+  - vieneto_kaina: decimal
+  - galioja_nuo: Date
+  - galioja_iki: Date
+  - surinkta: DateTime
+}
+
+class PrekiuSuderinimas {
+  - pasitikejimas: float
+  - busena: SuderinimoBusena
+  + patvirtinti(admin: Vartotojas)
+  + atmesti(admin: Vartotojas)
+}
+
+class PalyginimoRezultatas {
+  - sumos: Map<PrekybosTinklas, decimal>
+  - pigiausias: PrekybosTinklas
+  - geriausiasDerinys: List<PrekybosTinklas>
+  - sutaupyta: decimal
+  - ai_paaiskinimas: string
+}
+
+class ScraperioPaleidimas {
+  - pradzia: DateTime
+  - pabaiga: DateTime
+  - rasta_prekiu: int
+  - klaida: string
+}
+
+Vartotojas "1" -- "0..*" Pokalbis
+Pokalbis "1" *-- "1..*" Zinute
+Vartotojas "1" -- "0..*" PirkiniuSarasas
+PirkiniuSarasas "1" *-- "1..*" SarasoEilute
+SarasoEilute "0..*" --> "0..1" KanoninePreke
+PrekybosTinklas "1" -- "0..*" TinkloPreke
+TinkloPreke "1" *-- "1..*" Kaina
+PrekiuSuderinimas "0..*" --> "1" TinkloPreke
+PrekiuSuderinimas "0..*" --> "1" KanoninePreke
+PirkiniuSarasas ..> PalyginimoRezultatas : sukuria
+PrekybosTinklas "1" -- "0..*" ScraperioPaleidimas
+@enduml

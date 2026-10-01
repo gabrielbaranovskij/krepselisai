@@ -1,0 +1,47 @@
+---
+title: KrepšelisAI – panaudos atvejų diagrama
+---
+flowchart LR
+    V(["👤 Vartotojas"])
+    A(["👤 Administratorius"])
+    C(["⏱ Planuoklis (cron)"])
+    LLM(["🤖 LLM servisas"])
+    T(["🌐 Prekybos tinklų svetainės"])
+
+    subgraph SYS["KrepšelisAI"]
+        UC1(["Registruotis / prisijungti"])
+        UC2(["Rašyti pirkinių sąrašą laisvu tekstu"])
+        UC3(["Atpažinti prekes ir kiekius"])
+        UC4(["Palyginti krepšelio kainą tinkluose"])
+        UC5(["Rasti geriausią 2 parduotuvių derinį"])
+        UC6(["Pasiūlyti pigesnę alternatyvą"])
+        UC7(["Išsaugoti sąrašą"])
+        UC8(["Peržiūrėti istoriją"])
+        UC9(["Rinkti kainas ir akcijas"])
+        UC10(["Suderinti prekes tarp tinklų"])
+        UC11(["Patvirtinti abejotinus suderinimus"])
+        UC12(["Stebėti scraperių būseną"])
+    end
+
+    V --- UC1
+    V --- UC2
+    V --- UC7
+    V --- UC8
+    UC2 -. "«include»" .-> UC3
+    UC2 -. "«include»" .-> UC4
+    UC5 -. "«extend»" .-> UC4
+    UC6 -. "«extend»" .-> UC4
+    UC7 -. "«include»" .-> UC1
+    UC8 -. "«include»" .-> UC1
+
+    C --- UC9
+    UC9 -. "«include»" .-> UC10
+    UC9 --- T
+
+    UC3 --- LLM
+    UC10 --- LLM
+    UC6 --- LLM
+
+    A --- UC11
+    A --- UC12
+    UC11 -. "«include»" .-> UC1

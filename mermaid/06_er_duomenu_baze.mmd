@@ -1,0 +1,95 @@
+---
+title: KrepšelisAI – duomenų bazės ER diagrama
+---
+erDiagram
+    vartotojai {
+        UUID id PK
+        VARCHAR el_pastas UK
+        VARCHAR slaptazodzio_hash
+        VARCHAR role
+        TIMESTAMP sukurta
+    }
+    pokalbiai {
+        UUID id PK
+        UUID vartotojo_id FK
+        TIMESTAMP pradzia
+    }
+    zinutes {
+        UUID id PK
+        UUID pokalbio_id FK
+        VARCHAR autorius
+        TEXT tekstas
+        TIMESTAMP laikas
+    }
+    sarasai {
+        UUID id PK
+        UUID vartotojo_id FK
+        VARCHAR pavadinimas
+        TIMESTAMP sukurta
+    }
+    saraso_eilutes {
+        UUID id PK
+        UUID saraso_id FK
+        UUID kanonines_prekes_id FK
+        VARCHAR uzklausos_tekstas
+        NUMERIC kiekis
+        VARCHAR vienetas
+    }
+    kanonines_prekes {
+        UUID id PK
+        VARCHAR pavadinimas
+        VARCHAR kategorija
+        NUMERIC kiekis
+        VARCHAR vienetas
+    }
+    tinklai {
+        SERIAL id PK
+        VARCHAR pavadinimas
+        VARCHAR svetaine
+    }
+    tinklo_prekes {
+        UUID id PK
+        INT tinklo_id FK
+        VARCHAR pavadinimas
+        NUMERIC kiekis
+        VARCHAR vienetas
+        VARCHAR url
+    }
+    kainos {
+        BIGSERIAL id PK
+        UUID tinklo_prekes_id FK
+        NUMERIC kaina
+        NUMERIC kaina_su_kortele
+        NUMERIC vieneto_kaina
+        DATE galioja_nuo
+        DATE galioja_iki
+        TIMESTAMP surinkta
+    }
+    suderinimai {
+        UUID id PK
+        UUID tinklo_prekes_id FK
+        UUID kanonines_prekes_id FK
+        REAL pasitikejimas
+        VARCHAR busena
+        UUID patvirtino_id FK
+    }
+    scraperio_paleidimai {
+        BIGSERIAL id PK
+        INT tinklo_id FK
+        TIMESTAMP pradzia
+        TIMESTAMP pabaiga
+        INT rasta_prekiu
+        TEXT klaida
+    }
+
+    vartotojai ||--o{ pokalbiai : turi
+    pokalbiai ||--|{ zinutes : sudaro
+    vartotojai ||--o{ sarasai : kuria
+    sarasai ||--|{ saraso_eilutes : sudaro
+    kanonines_prekes |o--o{ saraso_eilutes : atitinka
+    tinklai ||--o{ tinklo_prekes : parduoda
+    tinklo_prekes ||--|{ kainos : turi
+    tinklo_prekes ||--o{ suderinimai : susieta
+    kanonines_prekes ||--o{ suderinimai : susieta
+    vartotojai |o--o{ suderinimai : patvirtina
+    tinklai ||--o{ scraperio_paleidimai : renkama

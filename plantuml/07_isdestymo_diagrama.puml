@@ -1,0 +1,30 @@
+@startuml 07_isdestymo_diagrama
+title KrepšelisAI – išdėstymo (deployment) diagrama
+skinparam shadowing false
+
+node "Vartotojo įrenginys" {
+  node "Naršyklė" {
+    artifact "React SPA" as spa
+  }
+}
+
+node "Debesų serveris (Docker)" as srv {
+  node "Nginx" as nginx
+  node "Node.js konteineris" {
+    artifact "REST API + servisai" as api
+    artifact "Scraperiai + node-cron" as scr
+  }
+  database "PostgreSQL konteineris" as db
+}
+
+cloud "LLM API" as llm
+cloud "rimi.lt / iki.lt / norfa.lt" as shops
+
+spa --> nginx : HTTPS
+nginx --> api : HTTP
+api --> db : TCP 5432
+scr --> db : TCP 5432
+api --> llm : HTTPS (REST)
+scr --> llm : HTTPS (REST)
+scr --> shops : HTTPS
+@enduml

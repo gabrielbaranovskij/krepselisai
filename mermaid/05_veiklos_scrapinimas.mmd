@@ -1,0 +1,41 @@
+---
+title: KrepšelisAI – veiklos diagrama, kasdienis kainų surinkimas
+---
+flowchart TD
+    S((Pradžia)) --> A1[Paleidžiama kasdien 06:00]
+
+    subgraph SCR["Scraperis"]
+        B1["Imti kitą tinklą (Rimi, IKI, Norfa)"] --> B2[Užkrauti kategorijų ir akcijų puslapius]
+        B2 --> B3{Puslapis pasiekiamas?}
+        B3 -- taip --> B4["Ištraukti prekes (pavadinimas, kaina, kaina su kortele, kiekis)"]
+        B3 -- ne --> B5[Užregistruoti klaidą]
+        B4 --> B6{Liko tinklų?}
+        B5 --> B6
+        B6 -- taip --> B1
+    end
+
+    subgraph NRM["Normalizatorius"]
+        N1["Suvienodinti vienetus (500 ml → 0,5 l)"] --> N2["Apskaičiuoti vieneto kainą (€/kg, €/l)"]
+    end
+
+    subgraph MAT["Prekių suderintojas"]
+        M1[Imti kitą tinklo prekę] --> M2{Jau susieta su kanonine preke?}
+        M2 -- taip --> M3[Atnaujinti kainą]
+        M2 -- ne --> M4[LLM įvertina panašumą su kandidatais]
+        M4 --> M5{"Pasitikėjimas ≥ 0,85?"}
+        M5 -- taip --> M6[Susieti automatiškai]
+        M5 -- ne --> M7{"Pasitikėjimas ≥ 0,5?"}
+        M7 -- taip --> M8[Įrašyti į patvirtinimo eilę]
+        M7 -- ne --> M9[Sukurti naują kanoninę prekę]
+        M3 & M6 & M8 & M9 --> M10{Liko prekių?}
+        M10 -- taip --> M1
+    end
+
+    A1 --> B1
+    B6 -- ne --> N1
+    N2 --> M1
+    M10 -- ne --> P1{Rasta prekių daug mažiau nei praeitą kartą?}
+    P1 -- taip --> P2[Pranešti administratoriui]
+    P1 -- ne --> P3[Įrašyti paleidimo ataskaitą]
+    P2 --> P3
+    P3 --> E(((Pabaiga)))

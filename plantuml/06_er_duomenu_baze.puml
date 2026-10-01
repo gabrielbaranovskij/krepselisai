@@ -1,0 +1,119 @@
+@startuml 06_er_duomenu_baze
+title KrepšelisAI – duomenų bazės ER diagrama
+skinparam shadowing false
+hide circle
+skinparam linetype ortho
+
+entity "vartotojai" as users {
+  * id : UUID <<PK>>
+  --
+  * el_pastas : VARCHAR(255) <<UNIQUE>>
+  * slaptazodzio_hash : VARCHAR(255)
+  * role : VARCHAR(20)
+  * sukurta : TIMESTAMP
+}
+
+entity "pokalbiai" as chats {
+  * id : UUID <<PK>>
+  --
+  * vartotojo_id : UUID <<FK>>
+  * pradzia : TIMESTAMP
+}
+
+entity "zinutes" as messages {
+  * id : UUID <<PK>>
+  --
+  * pokalbio_id : UUID <<FK>>
+  * autorius : VARCHAR(10)
+  * tekstas : TEXT
+  * laikas : TIMESTAMP
+}
+
+entity "sarasai" as lists {
+  * id : UUID <<PK>>
+  --
+  * vartotojo_id : UUID <<FK>>
+  * pavadinimas : VARCHAR(120)
+  * sukurta : TIMESTAMP
+}
+
+entity "saraso_eilutes" as list_items {
+  * id : UUID <<PK>>
+  --
+  * saraso_id : UUID <<FK>>
+  kanonines_prekes_id : UUID <<FK>>
+  * uzklausos_tekstas : VARCHAR(200)
+  * kiekis : NUMERIC(8,3)
+  * vienetas : VARCHAR(5)
+}
+
+entity "kanonines_prekes" as products {
+  * id : UUID <<PK>>
+  --
+  * pavadinimas : VARCHAR(200)
+  * kategorija : VARCHAR(80)
+  * kiekis : NUMERIC(8,3)
+  * vienetas : VARCHAR(5)
+}
+
+entity "tinklai" as chains {
+  * id : SERIAL <<PK>>
+  --
+  * pavadinimas : VARCHAR(50)
+  * svetaine : VARCHAR(200)
+}
+
+entity "tinklo_prekes" as store_products {
+  * id : UUID <<PK>>
+  --
+  * tinklo_id : INT <<FK>>
+  * pavadinimas : VARCHAR(200)
+  * kiekis : NUMERIC(8,3)
+  * vienetas : VARCHAR(5)
+  * url : VARCHAR(500)
+}
+
+entity "kainos" as prices {
+  * id : BIGSERIAL <<PK>>
+  --
+  * tinklo_prekes_id : UUID <<FK>>
+  * kaina : NUMERIC(8,2)
+  kaina_su_kortele : NUMERIC(8,2)
+  * vieneto_kaina : NUMERIC(10,4)
+  galioja_nuo : DATE
+  galioja_iki : DATE
+  * surinkta : TIMESTAMP
+}
+
+entity "suderinimai" as matches {
+  * id : UUID <<PK>>
+  --
+  * tinklo_prekes_id : UUID <<FK>>
+  * kanonines_prekes_id : UUID <<FK>>
+  * pasitikejimas : REAL
+  * busena : VARCHAR(25)
+  patvirtino_id : UUID <<FK>>
+}
+
+entity "scraperio_paleidimai" as runs {
+  * id : BIGSERIAL <<PK>>
+  --
+  * tinklo_id : INT <<FK>>
+  * pradzia : TIMESTAMP
+  pabaiga : TIMESTAMP
+  rasta_prekiu : INT
+  klaida : TEXT
+}
+
+users ||--o{ chats
+chats ||--|{ messages
+users ||--o{ lists
+lists ||--|{ list_items
+products |o--o{ list_items
+chains ||--o{ store_products
+store_products ||--|{ prices
+store_products ||--o{ matches
+products ||--o{ matches
+users |o--o{ matches
+chains ||--o{ runs
+@enduml
