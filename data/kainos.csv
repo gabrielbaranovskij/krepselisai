@@ -1,0 +1,31 @@
+preke_id,preke,vienetas,tinklas,tinklo_pavadinimas,kaina,kaina_su_kortele
+pienas_1l,"Pienas 2,5 % 1 l",vnt,Rimi,"Rimi pienas 2,5 % 1 l",1.19,0.99
+pienas_1l,"Pienas 2,5 % 1 l",vnt,IKI,"IKI pienas 2,5% riebumo 1l",1.15,1.15
+pienas_1l,"Pienas 2,5 % 1 l",vnt,Norfa,"Pienas 2,5 % rieb. 1 l",1.09,1.09
+duona_800g,Ruginė duona 800 g,vnt,Rimi,"Duona ruginė, 800 g",1.89,1.69
+duona_800g,Ruginė duona 800 g,vnt,IKI,"Ruginė duona 0,8 kg",1.99,1.59
+duona_800g,Ruginė duona 800 g,vnt,Norfa,Duona ruginė 800g,1.79,1.79
+kiausiniai_10,Kiaušiniai M 10 vnt.,vnt,Rimi,"Kiaušiniai M, 10 vnt.",2.79,2.49
+kiausiniai_10,Kiaušiniai M 10 vnt.,vnt,IKI,Vištų kiaušiniai M 10 vnt,2.89,2.39
+kiausiniai_10,Kiaušiniai M 10 vnt.,vnt,Norfa,Kiaušiniai M kat. 10 vnt.,2.19,2.19
+sviestas_200g,Sviestas 82 % 200 g,vnt,Rimi,"Sviestas 82 %, 200 g",2.99,2.49
+sviestas_200g,Sviestas 82 % 200 g,vnt,IKI,Sviestas 82% 200g,2.89,2.89
+sviestas_200g,Sviestas 82 % 200 g,vnt,Norfa,Sviestas 82 % rieb. 200 g,2.79,2.79
+vistiena_kg,Vištienos krūtinėlės filė,kg,Rimi,"Vištienos krūtinėlės filė, kg",6.99,5.99
+vistiena_kg,Vištienos krūtinėlės filė,kg,IKI,Viščiukų krūtinėlių filė kg,6.49,6.49
+vistiena_kg,Vištienos krūtinėlės filė,kg,Norfa,Vištų krūtinėlės filė 1 kg,6.79,6.79
+makaronai_500g,Makaronai spagečiai 500 g,vnt,Rimi,"Spagečiai, 500 g",1.29,1.29
+makaronai_500g,Makaronai spagečiai 500 g,vnt,IKI,"Makaronai spagečiai 0,5 kg",1.39,0.99
+makaronai_500g,Makaronai spagečiai 500 g,vnt,Norfa,Spagečiai 500 g,1.19,1.19
+suris_kg,Fermentinis sūris,kg,Rimi,"Fermentinis sūris, kg",8.99,7.99
+suris_kg,Fermentinis sūris,kg,IKI,Sūris fermentinis kg,9.49,8.49
+suris_kg,Fermentinis sūris,kg,Norfa,Fermentinis sūris 1 kg,8.79,8.79
+bananai_kg,Bananai,kg,Rimi,"Bananai, kg",1.39,1.39
+bananai_kg,Bananai,kg,IKI,Bananai kg,1.29,1.09
+bananai_kg,Bananai,kg,Norfa,Bananai 1 kg,1.29,1.29
+obuoliai_kg,Obuoliai,kg,Rimi,"Obuoliai Gala, kg",1.79,1.49
+obuoliai_kg,Obuoliai,kg,IKI,Obuoliai kg,1.69,1.69
+obuoliai_kg,Obuoliai,kg,Norfa,Lietuviški obuoliai 1 kg,0.99,0.99
+kava_500g,Malta kava 500 g,vnt,Rimi,"Malta kava, 500 g",6.49,5.49
+kava_500g,Malta kava 500 g,vnt,IKI,"Kava malta 0,5 kg",6.99,5.99
+kava_500g,Malta kava 500 g,vnt,Norfa,Malta kava 500g,6.29,6.29

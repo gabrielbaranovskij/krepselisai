@@ -1,0 +1,80 @@
+{
+  "id": "03",
+  "pavadinimas": "Savaitės apsipirkimas",
+  "X": "Savaitei: 2 kg bananų, pusantro kilogramo obuolių, malta kava, 2 duonos ir 20 kiaušinių",
+  "y": {
+    "atpazintas_sarasas": [
+      {
+        "preke_id": "bananai_kg",
+        "preke": "Bananai",
+        "kiekis": 2,
+        "vienetas": "kg"
+      },
+      {
+        "preke_id": "obuoliai_kg",
+        "preke": "Obuoliai",
+        "kiekis": 1.5,
+        "vienetas": "kg"
+      },
+      {
+        "preke_id": "kava_500g",
+        "preke": "Malta kava 500 g",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "duona_800g",
+        "preke": "Ruginė duona 800 g",
+        "kiekis": 2,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "kiausiniai_10",
+        "preke": "Kiaušiniai M 10 vnt.",
+        "kiekis": 2,
+        "vienetas": "vnt"
+      }
+    ],
+    "nerasta": [],
+    "sumos_eur": {
+      "Rimi": {
+        "be_korteles": 21.31,
+        "su_kortele": 18.86
+      },
+      "IKI": {
+        "be_korteles": 21.87,
+        "su_kortele": 18.66
+      },
+      "Norfa": {
+        "be_korteles": 18.32,
+        "su_kortele": 18.32
+      }
+    },
+    "pigiausias_tinklas": {
+      "su_kortele": "Norfa",
+      "be_korteles": "Norfa"
+    },
+    "sutaupoma_vs_brangiausia_eur": 0.54,
+    "geriausias_2_parduotuviu_derinys": {
+      "tinklai": [
+        "IKI",
+        "Norfa"
+      ],
+      "suma": 17.21,
+      "pirkti": {
+        "IKI": [
+          "Bananai",
+          "Malta kava 500 g",
+          "Ruginė duona 800 g"
+        ],
+        "Norfa": [
+          "Obuoliai",
+          "Kiaušiniai M 10 vnt."
+        ]
+      },
+      "sutaupoma_lyginant_su_pigiausiu": 1.11,
+      "verta": true
+    },
+    "atsakymas": "Pigiausia apsipirkti Norfa: su kortele 18,32 € (be kortelės pigiausia Norfa, 18,32 €). Brangiausia su kortele Rimi, 18,86 €, tad sutaupysite 0,54 €. Jei nepatingite užsukti į dvi parduotuves, IKI ir Norfa derinys kainuos 17,21 €, dar 1,11 € pigiau."
+  }
+}

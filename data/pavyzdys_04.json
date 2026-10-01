@@ -1,0 +1,60 @@
+{
+  "id": "04",
+  "pavadinimas": "Prekė, kurios nėra kataloge",
+  "X": "pienas, sviestas ir 3 avokadai",
+  "y": {
+    "atpazintas_sarasas": [
+      {
+        "preke_id": "pienas_1l",
+        "preke": "Pienas 2,5 % 1 l",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "sviestas_200g",
+        "preke": "Sviestas 82 % 200 g",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      }
+    ],
+    "nerasta": [
+      "avokadai (3 vnt.)"
+    ],
+    "sumos_eur": {
+      "Rimi": {
+        "be_korteles": 4.18,
+        "su_kortele": 3.48
+      },
+      "IKI": {
+        "be_korteles": 4.04,
+        "su_kortele": 4.04
+      },
+      "Norfa": {
+        "be_korteles": 3.88,
+        "su_kortele": 3.88
+      }
+    },
+    "pigiausias_tinklas": {
+      "su_kortele": "Rimi",
+      "be_korteles": "Norfa"
+    },
+    "sutaupoma_vs_brangiausia_eur": 0.56,
+    "geriausias_2_parduotuviu_derinys": {
+      "tinklai": [
+        "Rimi",
+        "IKI"
+      ],
+      "suma": 3.48,
+      "pirkti": {
+        "Rimi": [
+          "Pienas 2,5 % 1 l",
+          "Sviestas 82 % 200 g"
+        ],
+        "IKI": []
+      },
+      "sutaupoma_lyginant_su_pigiausiu": 0.0,
+      "verta": false
+    },
+    "atsakymas": "Pigiausia apsipirkti Rimi: su kortele 3,48 € (be kortelės pigiausia Norfa, 3,88 €). Brangiausia su kortele IKI, 4,04 €, tad sutaupysite 0,56 €. Pirkti dviejose parduotuvėse neapsimoka, skirtumas mažesnis nei 1 €. Kataloge neradau: avokadai (3 vnt.), į sumą jos neįtrauktos."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "01",
+  "pavadinimas": "Kasdieniai pusryčiai",
+  "X": "Reikia pieno, duonos, 10 kiaušinių ir sviesto",
+  "y": {
+    "atpazintas_sarasas": [
+      {
+        "preke_id": "pienas_1l",
+        "preke": "Pienas 2,5 % 1 l",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "duona_800g",
+        "preke": "Ruginė duona 800 g",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "kiausiniai_10",
+        "preke": "Kiaušiniai M 10 vnt.",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "sviestas_200g",
+        "preke": "Sviestas 82 % 200 g",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      }
+    ],
+    "nerasta": [],
+    "sumos_eur": {
+      "Rimi": {
+        "be_korteles": 8.86,
+        "su_kortele": 7.66
+      },
+      "IKI": {
+        "be_korteles": 8.92,
+        "su_kortele": 8.02
+      },
+      "Norfa": {
+        "be_korteles": 7.86,
+        "su_kortele": 7.86
+      }
+    },
+    "pigiausias_tinklas": {
+      "su_kortele": "Rimi",
+      "be_korteles": "Norfa"
+    },
+    "sutaupoma_vs_brangiausia_eur": 0.36,
+    "geriausias_2_parduotuviu_derinys": {
+      "tinklai": [
+        "Rimi",
+        "Norfa"
+      ],
+      "suma": 7.36,
+      "pirkti": {
+        "Rimi": [
+          "Pienas 2,5 % 1 l",
+          "Ruginė duona 800 g",
+          "Sviestas 82 % 200 g"
+        ],
+        "Norfa": [
+          "Kiaušiniai M 10 vnt."
+        ]
+      },
+      "sutaupoma_lyginant_su_pigiausiu": 0.3,
+      "verta": false
+    },
+    "atsakymas": "Pigiausia apsipirkti Rimi: su kortele 7,66 € (be kortelės pigiausia Norfa, 7,86 €). Brangiausia su kortele IKI, 8,02 €, tad sutaupysite 0,36 €. Pirkti dviejose parduotuvėse neapsimoka, skirtumas mažesnis nei 1 €."
+  }
+}

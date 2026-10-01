@@ -1,0 +1,73 @@
+{
+  "id": "02",
+  "pavadinimas": "Vakarienė su kiekiais",
+  "X": "Vakarienei reikės 1 kg vištienos filė, pakelio spagečių, 2 l pieno ir pusės kilogramo sūrio",
+  "y": {
+    "atpazintas_sarasas": [
+      {
+        "preke_id": "vistiena_kg",
+        "preke": "Vištienos krūtinėlės filė",
+        "kiekis": 1,
+        "vienetas": "kg"
+      },
+      {
+        "preke_id": "makaronai_500g",
+        "preke": "Makaronai spagečiai 500 g",
+        "kiekis": 1,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "pienas_1l",
+        "preke": "Pienas 2,5 % 1 l",
+        "kiekis": 2,
+        "vienetas": "vnt"
+      },
+      {
+        "preke_id": "suris_kg",
+        "preke": "Fermentinis sūris",
+        "kiekis": 0.5,
+        "vienetas": "kg"
+      }
+    ],
+    "nerasta": [],
+    "sumos_eur": {
+      "Rimi": {
+        "be_korteles": 15.16,
+        "su_kortele": 13.25
+      },
+      "IKI": {
+        "be_korteles": 14.93,
+        "su_kortele": 14.03
+      },
+      "Norfa": {
+        "be_korteles": 14.55,
+        "su_kortele": 14.55
+      }
+    },
+    "pigiausias_tinklas": {
+      "su_kortele": "Rimi",
+      "be_korteles": "Norfa"
+    },
+    "sutaupoma_vs_brangiausia_eur": 1.3,
+    "geriausias_2_parduotuviu_derinys": {
+      "tinklai": [
+        "Rimi",
+        "IKI"
+      ],
+      "suma": 12.96,
+      "pirkti": {
+        "Rimi": [
+          "Vištienos krūtinėlės filė",
+          "Pienas 2,5 % 1 l",
+          "Fermentinis sūris"
+        ],
+        "IKI": [
+          "Makaronai spagečiai 500 g"
+        ]
+      },
+      "sutaupoma_lyginant_su_pigiausiu": 0.29,
+      "verta": false
+    },
+    "atsakymas": "Pigiausia apsipirkti Rimi: su kortele 13,25 € (be kortelės pigiausia Norfa, 14,55 €). Brangiausia su kortele Norfa, 14,55 €, tad sutaupysite 1,30 €. Pirkti dviejose parduotuvėse neapsimoka, skirtumas mažesnis nei 1 €."
+  }
+}
