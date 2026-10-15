@@ -46,6 +46,14 @@ Generatyvinis DI atlieka tris darbus:
 
 Pačios sumos skaičiuojamos įprastu kodu, ne DI, todėl rezultatas visada tikslus.
 
+## Gemini API prototipas (Google Colab)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gabrielbaranovskij/krepselisai/blob/main/notebooks/KrepselisAI_Gemini_agentas.ipynb)
+
+[`notebooks/KrepselisAI_Gemini_agentas.ipynb`](notebooks/KrepselisAI_Gemini_agentas.ipynb) — veikiantis DI agento prototipas su **Google Gemini API**. Gemini pats kviečia du įrankius (`gauti_kataloga`, `apskaiciuoti_krepseli`), o užrašų knygelė parodo visą eigą nuo vartotojo užklausos iki galutinio atsakymo, vizualizuoja rezultatus ir įvertina agentą su etaloninėmis (X, y) poromis.
+
+Paleidimas: atsidarykite per Colab ženkliuką, **🔑 Secrets** skydelyje įrašykite `GEMINI_API_KEY` (raktas iš [Google AI Studio](https://aistudio.google.com/apikey)) ir paspauskite *Runtime → Run all*.
+
 ## End-To-End pavyzdžiai
 
 | # | X (vartotojo užklausa) | y (atsakymas) | Ką tikrina |
@@ -74,6 +82,7 @@ python scripts/generuoti_poras.py
 ```
 krepselisai/
 ├── data/              (X, y) poros ir pavyzdinis kainų katalogas
+├── notebooks/         Gemini API agento prototipas (Colab .ipynb)
 ├── prompts/           sisteminis promptas ir 4 testavimo promptai
 ├── scripts/           (X, y) porų generatorius
 └── docs/diagrams/
@@ -90,7 +99,7 @@ krepselisai/
 | Serveris | Node.js + Express (TypeScript) |
 | Kainų rinkimas | fetch + cheerio, node-cron |
 | Duomenų bazė | PostgreSQL |
-| DI | LLM API (OpenAI arba Claude) |
+| DI | LLM API (OpenAI arba Claude); prototipas — Google Gemini API |
 | Diegimas | Docker + Nginx |
 
 ---
