@@ -182,7 +182,7 @@ def main():
 
         testas = (
             f"# Testavimo promptas {pv['id']}: {pv['pavadinimas']}\n\n"
-            "Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į ChatGPT (ar kitą GPT agentą).\n"
+            "Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į Claude (ar kitą LLM agentą, pvz. ChatGPT).\n"
             f"Teisingas atsakymas: `data/pavyzdys_{pv['id']}.json` (laukas `y`).\n\n---\n\n"
             f"{sisteminis.strip()}\n\n## Kainų katalogas (EUR)\n\n{katalogas}\n\n"
             f"## Vartotojo užklausa\n\n{pv['X']}\n"

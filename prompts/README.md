@@ -9,7 +9,7 @@
 
 1. Atsidarykite `test_prompt_01.md`.
 2. Nukopijuokite viską žemiau linijos `---`.
-3. Įklijuokite į ChatGPT (naują pokalbį) ir išsiųskite.
+3. Įklijuokite į Claude ar kitą LLM agentą (naują pokalbį) ir išsiųskite.
 4. Palyginkite GPT atsakymą su `data/pavyzdys_01.json` lauku `y`.
 
 Testas pavyko, jei sutampa atpažintas sąrašas, sumos kiekviename tinkle, pigiausias tinklas ir derinio rezultatas. Teksto formuluotė gali skirtis.

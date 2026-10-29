@@ -63,12 +63,12 @@ Paleidimas: atsidarykite per Colab ženkliuką, **🔑 Secrets** skydelyje įra�
 | 03 | Savaitei: 2 kg bananų, pusantro kilogramo obuolių, malta kava, 2 duonos ir 20 kiaušinių | **Norfa**, 18,32 € → **IKI + Norfa** 17,21 € | Kada apsimoka 2 parduotuvės |
 | 04 | pienas, sviestas ir 3 avokadai | **Rimi**, 3,48 €, avokadų nerasta | Prekė, kurios nėra kataloge |
 
-Pilni atsakymai: [`data/`](data/) · Testavimo promptai GPT agentui: [`prompts/`](prompts/)
+Pilni atsakymai: [`data/`](data/) · Testavimo promptai LLM agentui: [`prompts/`](prompts/)
 
 ### Kaip išbandyti
 
 1. Atsidarykite [`prompts/test_prompt_01.md`](prompts/test_prompt_01.md) ir nukopijuokite tekstą po linija `---`.
-2. Įklijuokite į ChatGPT.
+2. Įklijuokite į Claude (ar kitą LLM agentą).
 3. Palyginkite atsakymą su [`data/pavyzdys_01.json`](data/pavyzdys_01.json).
 
 Norint perskaičiuoti visus (X, y) iš kainų katalogo:

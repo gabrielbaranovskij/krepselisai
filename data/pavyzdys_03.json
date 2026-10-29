@@ -38,8 +38,8 @@
     "nerasta": [],
     "sumos_eur": {
       "Rimi": {
-        "be_korteles": 21.31,
-        "su_kortele": 18.86
+        "be_korteles": 21.32,
+        "su_kortele": 18.87
       },
       "IKI": {
         "be_korteles": 21.87,
@@ -54,7 +54,7 @@
       "su_kortele": "Norfa",
       "be_korteles": "Norfa"
     },
-    "sutaupoma_vs_brangiausia_eur": 0.54,
+    "sutaupoma_vs_brangiausia_eur": 0.55,
     "geriausias_2_parduotuviu_derinys": {
       "tinklai": [
         "IKI",
@@ -75,6 +75,6 @@
       "sutaupoma_lyginant_su_pigiausiu": 1.11,
       "verta": true
     },
-    "atsakymas": "Pigiausia apsipirkti Norfa: su kortele 18,32 € (be kortelės pigiausia Norfa, 18,32 €). Brangiausia su kortele Rimi, 18,86 €, tad sutaupysite 0,54 €. Jei nepatingite užsukti į dvi parduotuves, IKI ir Norfa derinys kainuos 17,21 €, dar 1,11 € pigiau."
+    "atsakymas": "Pigiausia apsipirkti Norfa: su kortele 18,32 € (be kortelės pigiausia Norfa, 18,32 €). Brangiausia su kortele Rimi, 18,87 €, tad sutaupysite 0,55 €. Jei nepatingite užsukti į dvi parduotuves, IKI ir Norfa derinys kainuos 17,21 €, dar 1,11 € pigiau."
   }
 }

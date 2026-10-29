@@ -33,7 +33,7 @@
     "sumos_eur": {
       "Rimi": {
         "be_korteles": 15.16,
-        "su_kortele": 13.25
+        "su_kortele": 13.26
       },
       "IKI": {
         "be_korteles": 14.93,
@@ -48,7 +48,7 @@
       "su_kortele": "Rimi",
       "be_korteles": "Norfa"
     },
-    "sutaupoma_vs_brangiausia_eur": 1.3,
+    "sutaupoma_vs_brangiausia_eur": 1.29,
     "geriausias_2_parduotuviu_derinys": {
       "tinklai": [
         "Rimi",
@@ -65,9 +65,9 @@
           "Makaronai spagečiai 500 g"
         ]
       },
-      "sutaupoma_lyginant_su_pigiausiu": 0.29,
+      "sutaupoma_lyginant_su_pigiausiu": 0.3,
       "verta": false
     },
-    "atsakymas": "Pigiausia apsipirkti Rimi: su kortele 13,25 € (be kortelės pigiausia Norfa, 14,55 €). Brangiausia su kortele Norfa, 14,55 €, tad sutaupysite 1,30 €. Pirkti dviejose parduotuvėse neapsimoka, skirtumas mažesnis nei 1 €."
+    "atsakymas": "Pigiausia apsipirkti Rimi: su kortele 13,26 € (be kortelės pigiausia Norfa, 14,55 €). Brangiausia su kortele Norfa, 14,55 €, tad sutaupysite 1,29 €. Pirkti dviejose parduotuvėse neapsimoka, skirtumas mažesnis nei 1 €."
   }
 }

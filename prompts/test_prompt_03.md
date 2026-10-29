@@ -1,6 +1,6 @@
 # Testavimo promptas 03: Savaitės apsipirkimas
 
-Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į ChatGPT (ar kitą GPT agentą).
+Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į Claude (ar kitą LLM agentą, pvz. ChatGPT).
 Teisingas atsakymas: `data/pavyzdys_03.json` (laukas `y`).
 
 ---

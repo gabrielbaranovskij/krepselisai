@@ -1,6 +1,6 @@
 # Testavimo promptas 01: Kasdieniai pusryčiai
 
-Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į ChatGPT (ar kitą GPT agentą).
+Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į Claude (ar kitą LLM agentą, pvz. ChatGPT).
 Teisingas atsakymas: `data/pavyzdys_01.json` (laukas `y`).
 
 ---

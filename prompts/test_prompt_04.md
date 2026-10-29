@@ -1,6 +1,6 @@
 # Testavimo promptas 04: Prekė, kurios nėra kataloge
 
-Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į ChatGPT (ar kitą GPT agentą).
+Nukopijuokite visą tekstą žemiau nuo linijos ir įklijuokite į Claude (ar kitą LLM agentą, pvz. ChatGPT).
 Teisingas atsakymas: `data/pavyzdys_04.json` (laukas `y`).
 
 ---
