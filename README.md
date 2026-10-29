@@ -77,6 +77,14 @@ Norint perskaičiuoti visus (X, y) iš kainų katalogo:
 python scripts/generuoti_poras.py
 ```
 
+## TensorFlow užduotys 1.3–1.5
+
+| Užduotis | Notebook | Duomenys |
+|---|---|---|
+| 1.3 TensorFlow ir Decision Forests | [`1_3_verslo_duomenys_TF_ir_DecisionForests.ipynb`](notebooks/1_3_verslo_duomenys_TF_ir_DecisionForests.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gabrielbaranovskij/krepselisai/blob/main/notebooks/1_3_verslo_duomenys_TF_ir_DecisionForests.ipynb) | Kaggle *Telco Customer Churn* (7043 klientai) |
+| 1.4 CNN | [`1_4_CNN_geliu_klasifikavimas.ipynb`](notebooks/1_4_CNN_geliu_klasifikavimas.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gabrielbaranovskij/krepselisai/blob/main/notebooks/1_4_CNN_geliu_klasifikavimas.ipynb) | 3670 gėlių nuotraukų, 5 klasės |
+| 1.5 Transfer learning | [`1_5_transfer_learning_geles.ipynb`](notebooks/1_5_transfer_learning_geles.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gabrielbaranovskij/krepselisai/blob/main/notebooks/1_5_transfer_learning_geles.ipynb) | tos pačios gėlės, MobileNetV2 |
+
 ## Repozitorijos struktūra
 
 ```
